@@ -5,7 +5,7 @@ import { Toaster } from "@/components/ui/toaster"
 import { getCurrentUser } from "@/lib/actions/user.action"
 import { redirect } from "next/navigation"
 
-export const dynamic = "force-dymanic"
+export const dynamic = "force-dynamic";
 
 const RootLayout = async ({ children }: { children : React.ReactNode }) => {
     const currentUser = await getCurrentUser()
@@ -19,7 +19,9 @@ const RootLayout = async ({ children }: { children : React.ReactNode }) => {
             />
 
             <section className="flex h-full flex-1 flex-col">
-                <MobileNav {...currentUser}/>
+                <MobileNav 
+                    {...currentUser}
+                />
                 <Header 
                     userId={currentUser.$id} 
                     accountId={currentUser.$id}
